@@ -1,0 +1,148 @@
+/* Font families definitions */
+@font-face {
+  font-family: 'Super Plumber Brothers';
+  src: url(./assets/super-plumber-brothers.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Emulogic';
+  src: url(./assets/emulogic.ttf);
+  font-weight: 400;
+}
+
+/* Global styles and variables */
+:root {
+  --z-index-world: 1;
+  --z-index-princess: 2;
+  --z-index-lava: 3;
+  --z-index-modal: 4;
+  --z-index-warning: 5;
+  --font-brand: Emulogic, monospace;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+/* Mario-themed game container */
+.world {
+  background: url(./assets/world.jpg) repeat-x top left;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.lava {
+  background: url(./assets/lava.jpg) repeat-x top right;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  transition: all 2s ease-in-out;
+  animation: flow 1.5s infinite;
+}
+
+.world:hover .lava {
+  height: 653px;
+  background-position: top left;
+  transition: all 2s ease-in-out;
+}
+
+/* Score panel on the upper left corner */
+.score {
+  font-family: var(--font-brand);
+  color: #fff;
+  font-size: 60px;
+  position: absolute;
+  top: 30px;
+  left: 50px;
+}
+
+/* Princess Peach flying her drones on the upper right corner */
+.princess {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  animation: balance 4s infinite;
+  width: 180px;
+  z-index: var(--z-index-princess);
+}
+
+/* Warning box displayed when running out of time */
+.warning {
+  animation: pulse 1.15s infinite;
+  width: 120px;
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  z-index: var(--z-index-warning);
+}
+
+/* Question modal */
+.modal {
+  max-width: 768px;
+  width: 100%;
+  background-color: #222;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 4px;
+  border: 6px solid #fff;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-index-modal);
+}
+
+.modal__content {
+  position: relative;
+  padding: 40px;
+  font-size: 30px;
+  font-family: var(--font-brand);
+  color: #fff;
+}
+
+.modal__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 100px;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+@keyframes balance {
+  0%,
+  50%,
+  100% {
+    transform: scale(1) rotate(0) translate(0);
+  }
+  25% {
+    transform: scale(1.15) rotate(-10deg) translate(-20px);
+  }
+  75% {
+    transform: scale(1.15) rotate(10deg) translate(20px);
+  }
+}
+
+@keyframes flow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+}

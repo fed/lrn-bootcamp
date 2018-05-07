@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "learnosity-bootcamp-project",
+  "version": "0.0.0",
+  "description": "Learnosity Bootcamp Project",
+  "main": "index.html",
+  "repository": "https://github.com/fknussel/learnosity-bootcamp-project.git",
+  "author": "Federico Knüssel <fknussel@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "browser-sync start --port 6789 --files \".\" --server"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.4"
+  }
+}
