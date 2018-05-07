@@ -8,7 +8,8 @@
   "author": "Federico Knüssel <fknussel@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "browser-sync start --port 6789 --files \".\" --server"
+    "start": "browser-sync start --port 6789 --files \".\" --server",
+    "test": "echo \"Error: no test specified\""
   },
   "devDependencies": {
     "browser-sync": "^2.24.4",
