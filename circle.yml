@@ -6,5 +6,4 @@ deployment:
   production:
     branch: master
     commands:
-      - npm run build
       - surge --project . --domain https://mario.surge.sh
