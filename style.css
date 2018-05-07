@@ -14,10 +14,12 @@
 /* Global styles and variables */
 :root {
   --z-index-world: 1;
-  --z-index-princess: 2;
+  --z-index-tiles: 2;
   --z-index-lava: 3;
-  --z-index-modal: 4;
-  --z-index-warning: 5;
+  --z-index-princess: 4;
+  --z-index-modal: var(--z-index-princess);
+  --z-index-warning: var(--z-index-princess);
+  --z-index-audio-control: var(--z-index-princess);
   --font-brand: Emulogic, monospace;
 }
 
@@ -37,29 +39,44 @@ body {
 }
 
 .lava {
-  background: url(./assets/lava.jpg) repeat-x top right;
+  background: url(./assets/lava.jpg) repeat-x top left;
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 100px;
   transition: all 2s ease-in-out;
   animation: flow 1.5s infinite;
-}
-
-.world:hover .lava {
-  height: 653px;
-  background-position: top left;
-  transition: all 2s ease-in-out;
+  z-index: var(--z-index-lava);
 }
 
 /* Score panel on the upper left corner */
-.score {
-  font-family: var(--font-brand);
-  color: #fff;
-  font-size: 60px;
+.score-panel {
   position: absolute;
   top: 30px;
-  left: 50px;
+  left: 30px;
+}
+
+.score-panel__points {
+  font-family: var(--font-brand);
+  color: #fff;
+  font-size: 15px;
+}
+
+.score-panel__lives {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.score-panel__lives li {
+  display: inline-block;
+}
+
+.score-panel__lives li:not(:last-child) {
+  margin-right: 10px;
+}
+
+.score-panel__lives img {
+  width: 30px;
 }
 
 /* Princess Peach flying her drones on the upper right corner */
@@ -68,7 +85,7 @@ body {
   top: 30px;
   right: 50px;
   animation: balance 4s infinite;
-  width: 180px;
+  width: 150px;
   z-index: var(--z-index-princess);
 }
 
@@ -82,11 +99,22 @@ body {
   z-index: var(--z-index-warning);
 }
 
+.audio-control {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  z-index: var(--z-index-audio-control);
+}
+
+.audio-control__icon {
+  width: 30px;
+}
+
 /* Question modal */
 .modal {
   max-width: 768px;
   width: 100%;
-  background-color: #222;
+  background-color: rgba(0, 0, 0, 0.85);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -110,6 +138,30 @@ body {
   right: 0;
   transform: translate(50%, -50%);
   width: 100px;
+}
+
+.platforms {
+  list-style-type: none;
+  padding-left: 0;
+  position: absolute;
+  bottom: 120px; /* Make sure this value is above the initial lava level */
+  left: 20px;
+}
+
+.platforms__tile {
+  display: inline-block;
+  z-index: var(--z-index-tiles);
+  width: 160px;
+  height: 32px;
+}
+
+.platforms__tile-image {
+  width: 100%;
+}
+
+.platforms__tile::before {
+  content: url(./assets/mario2.png);
+  display: inline-block;
 }
 
 /* Animations */

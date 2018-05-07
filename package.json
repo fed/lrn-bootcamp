@@ -11,6 +11,7 @@
     "start": "browser-sync start --port 6789 --files \".\" --server"
   },
   "devDependencies": {
-    "browser-sync": "^2.24.4"
+    "browser-sync": "^2.24.4",
+    "surge": "^0.20.1"
   }
 }

@@ -11,17 +11,52 @@
 
 <body>
   <div class="world">
-    <span class="score">7/10</span>
-    <img src="assets/princess.png" class="princess" alt="Princess Peach waiting for Mario" />
+    <!-- Game score on the upper left corner -->
+    <div class="score-panel">
+      <span class="score-panel__points">SCORE: 0/5</span>
+      <ul class="score-panel__lives">
+        <li>
+          <img src="assets/mushroom.png" alt="" />
+        </li>
+        <li>
+          <img src="assets/mushroom.png" alt="" />
+        </li>
+        <li>
+          <img src="assets/mushroom.png" alt="" />
+        </li>
+      </ul>
+    </div>
+
+    <!-- Princess Peach flying on the upper right corner -->
+    <img src="assets/princess.png" class="princess" alt="" />
+
+    <!-- Warning box that displays whenever the user is running out of time -->
     <img src="assets/exclamation.png" class="warning" alt="Hurry up!" />
+
+    <!-- Background audio player and control -->
+    <audio src="assets/soundtrack.mp3" id="audio-player" autoplay></audio>
+    <a href="#" class="audio-control">
+      <img src="assets/audio-on.svg" class="audio-control__icon" />
+    </a>
+
+    <!-- Modal on which we display the questions -->
     <div class="modal">
       <div class="modal__content">
         <img src="assets/question.png" class="modal__icon" alt="" /> Question goes here
       </div>
     </div>
+
+    <!-- Animated rising lava -->
     <div class="lava"></div>
+
+    <!-- Tiles Mario steps on -->
+    <ul class="platforms">
+      <li class="platforms__tile">
+        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
+      </li>
+    </ul>
   </div>
-  <audio src="assets/soundtrack.mp3" autoplay></audio>
+
   <script src="app.js"></script>
 </body>
 
