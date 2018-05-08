@@ -46,7 +46,7 @@ body {
   width: 100%;
   height: 100px;
   transition: all 2s ease-in-out;
-  animation: flow 1.5s infinite;
+  animation: lava-flow 2s infinite;
   z-index: var(--z-index-lava);
 }
 
@@ -108,6 +108,11 @@ body {
   bottom: 60px;
   right: 60px;
   z-index: var(--z-index-warning);
+  display: none;
+}
+
+.warning--visible {
+  display: inline-block;
 }
 
 .audio-control {
@@ -126,15 +131,15 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.0000001); /* starts off being hidden */
   z-index: var(--z-index-splash);
   text-align: center;
   transition: all 500ms ease;
 }
 
-.modal--hidden,
-.splash--hidden {
-  transform: translate(-50%, -50%) scale(0.0000001) !important;
+.modal--visible,
+.splash--visible {
+  transform: translate(-50%, -50%) scale(1) !important;
 }
 
 .splash__image {
@@ -176,7 +181,7 @@ body {
   left: 50%;
   border-radius: 4px;
   border: 6px solid #fff;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(0.0000001); /* starts off being hidden */
   z-index: var(--z-index-modal);
   transition: all 850ms ease-in-out;
 }
@@ -197,29 +202,66 @@ body {
   width: 100px;
 }
 
+.mario {
+  height: 84px;
+  transform: translateY(10px);
+}
+
 .platforms {
   list-style-type: none;
   padding-left: 0;
   position: absolute;
-  bottom: 150px; /* Make sure this value is above the initial lava level */
+  bottom: 160px; /* Make sure this value is above the initial lava level */
   left: 20px;
   margin: 0;
 }
 
 .platforms__tile {
-  display: inline-block;
+  display: none;
   z-index: var(--z-index-tiles);
   width: 160px;
   height: 32px;
+  margin-right: 35px;
+}
+
+.platforms__tile--visible {
+  display: inline-block !important;
+}
+
+.platforms__tile:nth-child(1) {
+  transform: translateY(0);
+}
+
+.platforms__tile:nth-child(2) {
+  transform: translateY(-80px);
+}
+
+.platforms__tile:nth-child(3) {
+  transform: translateY(-160px);
+}
+
+.platforms__tile:nth-child(4) {
+  transform: translateY(-240px);
+}
+
+.platforms__tile:nth-child(5) {
+  transform: translateY(-320px);
+}
+
+.platforms__tile:nth-child(6) {
+  transform: translateY(-400px);
+}
+
+.platforms__tile:nth-child(7) {
+  transform: translateY(-480px);
+}
+
+.platforms__tile:nth-child(8) {
+  transform: translateY(-560px);
 }
 
 .platforms__tile-image {
   width: 100%;
-}
-
-.platforms__tile::before {
-  content: url(./assets/rsz_mario2.png);
-  display: inline-block;
 }
 
 /* Animations */
@@ -247,7 +289,7 @@ body {
   }
 }
 
-@keyframes flow {
+@keyframes lava-flow {
   0%,
   100% {
     transform: translateY(0);

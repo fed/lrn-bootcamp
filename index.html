@@ -37,38 +37,61 @@
     <!-- Warning box that displays when time's running out -->
     <img src="assets/exclamation.png" class="warning" alt="Hurry up!" />
 
+    <!-- Animated rising lava -->
+    <div class="lava"></div>
+
+    <!-- Tiles Mario steps on -->
+    <ul class="platforms">
+      <li class="platforms__tile platforms__tile--visible">
+        <!-- <img src="https://media.giphy.com/media/TCoKXVW6cldmw/giphy.gif" class="mario" alt="" /> -->
+        <img src="assets/mario.gif" class="mario" alt="" />
+        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
+      </li>
+      <li class="platforms__tile">
+        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
+      </li>
+      <li class="platforms__tile">
+        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
+      </li>
+      <li class="platforms__tile">
+        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
+      </li>
+      <li class="platforms__tile">
+        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
+      </li>
+      <li class="platforms__tile">
+        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
+      </li>
+      <li class="platforms__tile">
+        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
+      </li>
+      <li class="platforms__tile">
+        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
+      </li>
+    </ul>
+
     <!-- Background audio player and control -->
     <audio src="assets/soundtrack.mp3" id="audio-player" autoplay></audio>
     <a href="#" class="audio-control">
       <img src="assets/audio-on.svg" class="audio-control__icon" />
     </a>
 
-    <!-- Logo -->
-    <div class="splash">
+    <!-- Splash screen with start button -->
+    <div class="splash splash--visible">
       <img src="assets/logo.png" class="splash__image" alt="" />
-      <div class="splash__copyright">©1985 Learnosity</div>
+      <div class="splash__copyright">©2018 Learnosity</div>
       <button class="splash__start-button">Start</button>
     </div>
 
-    <!-- Modal on which we display the questions -->
-    <div class="modal modal--hidden">
+    <!-- Modal on which we render the questions -->
+    <div class="modal">
       <div class="modal__content">
         <img src="assets/question.png" class="modal__icon" alt="" /> Question goes here
       </div>
     </div>
-
-    <!-- Animated rising lava -->
-    <div class="lava"></div>
-
-    <!-- Tiles Mario steps on -->
-    <ul class="platforms">
-      <li class="platforms__tile">
-        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
-      </li>
-    </ul>
   </div>
 
-  <script src="app.js"></script>
+  <script src="bundle.js"></script>
 </body>
 
 </html>
