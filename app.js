@@ -10,7 +10,7 @@
   const lava = document.querySelector('.lava');
   const maxLavaHeight = 653;
 
-  setInterval(() => {
+  const risingLavaInterval = setInterval(() => {
     const currentLavaHeight = lavaLevel();
     const nextLavaHeight = currentLavaHeight + 50;
 
@@ -18,6 +18,17 @@
       lava.style.height = `${nextLavaHeight}px`;
     }
   }, 10000);
+
+  clearInterval(risingLavaInterval);
+
+  const questionModal = document.querySelector('.modal');
+  const splashScreen = document.querySelector('.splash');
+  const startButton = document.querySelector('.splash__start-button');
+
+  startButton.addEventListener('click', () => {
+    splashScreen.classList.add('splash--hidden');
+    questionModal.classList.remove('modal--hidden');
+  });
 
   // Enable turning the audio player on and off.
   const audioControl = document.querySelector('.audio-control');

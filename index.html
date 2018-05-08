@@ -13,7 +13,11 @@
   <div class="world">
     <!-- Game score on the upper left corner -->
     <div class="score-panel">
-      <span class="score-panel__points">SCORE: 0/5</span>
+      <div class="score-panel__coins">
+        <img src="assets/coin.png" class="score-panel__coins-icon" alt="" />
+        <span class="score-panel__coins-label">0005</span>
+      </div>
+
       <ul class="score-panel__lives">
         <li>
           <img src="assets/mushroom.png" alt="" />
@@ -30,7 +34,7 @@
     <!-- Princess Peach flying on the upper right corner -->
     <img src="assets/princess.png" class="princess" alt="" />
 
-    <!-- Warning box that displays whenever the user is running out of time -->
+    <!-- Warning box that displays when time's running out -->
     <img src="assets/exclamation.png" class="warning" alt="Hurry up!" />
 
     <!-- Background audio player and control -->
@@ -39,8 +43,15 @@
       <img src="assets/audio-on.svg" class="audio-control__icon" />
     </a>
 
+    <!-- Logo -->
+    <div class="splash">
+      <img src="assets/logo.png" class="splash__image" alt="" />
+      <div class="splash__copyright">©1985 Learnosity</div>
+      <button class="splash__start-button">Start</button>
+    </div>
+
     <!-- Modal on which we display the questions -->
-    <div class="modal">
+    <div class="modal modal--hidden">
       <div class="modal__content">
         <img src="assets/question.png" class="modal__icon" alt="" /> Question goes here
       </div>
