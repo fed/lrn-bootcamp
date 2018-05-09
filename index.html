@@ -41,34 +41,7 @@
     <div class="lava"></div>
 
     <!-- Tiles Mario steps on -->
-    <ul class="platforms">
-      <li class="platforms__tile platforms__tile--visible">
-        <!-- <img src="https://media.giphy.com/media/TCoKXVW6cldmw/giphy.gif" class="mario" alt="" /> -->
-        <img src="assets/mario.gif" class="mario" alt="" />
-        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
-      </li>
-      <li class="platforms__tile">
-        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
-      </li>
-      <li class="platforms__tile">
-        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
-      </li>
-      <li class="platforms__tile">
-        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
-      </li>
-      <li class="platforms__tile">
-        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
-      </li>
-      <li class="platforms__tile">
-        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
-      </li>
-      <li class="platforms__tile">
-        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
-      </li>
-      <li class="platforms__tile">
-        <img src="assets/tiles.png" class="platforms__tile-image" alt="" />
-      </li>
-    </ul>
+    <ul class="platforms"></ul>
 
     <!-- Background audio player and control -->
     <audio src="assets/soundtrack.mp3" id="audio-player" autoplay></audio>
@@ -84,9 +57,11 @@
     </div>
 
     <!-- Modal on which we render the questions -->
-    <div class="modal">
-      <div class="modal__content">
-        <img src="assets/question.png" class="modal__icon" alt="" /> Question goes here
+    <div class="question">
+      <div class="question__content">
+        <img src="assets/question.png" class="question__icon" alt="" />
+        <span class="question__title">Loading question...</span>
+        <ul class="question__options"></ul>
       </div>
     </div>
   </div>

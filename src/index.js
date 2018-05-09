@@ -1,19 +1,19 @@
 import { initControls } from './controls';
 import { enableAudioSupport } from './audio';
 import { openLavaGates, getLavaLevel } from './lava';
+import { renderTiles } from './tiles';
 
-(function() {
-  console.log('INIT');
+console.log('INIT');
 
-  // Selectors.
+renderTiles();
 
-  // Game state.
-  let coins = 0;
-  let livesLeft = 3;
-  let currentTileIndex = 0;
+// Selectors.
 
-  // Game initialisation logic.
-  openLavaGates();
-  initControls();
-  enableAudioSupport();
-})();
+// Game state.
+let coins = 0;
+let livesLeft = 3;
+let currentTileIndex = 0;
+
+// Game initialisation logic.
+initControls();
+enableAudioSupport();

@@ -18,7 +18,7 @@
   --z-index-lava: 3;
   --z-index-princess: 4;
   --z-index-splash: var(--z-index-princess);
-  --z-index-modal: var(--z-index-princess);
+  --z-index-question: var(--z-index-princess);
   --z-index-warning: var(--z-index-princess);
   --z-index-audio-control: var(--z-index-princess);
   --font-brand: Emulogic, monospace;
@@ -137,7 +137,7 @@ body {
   transition: all 500ms ease;
 }
 
-.modal--visible,
+.question--visible,
 .splash--visible {
   transform: translate(-50%, -50%) scale(1) !important;
 }
@@ -172,7 +172,7 @@ body {
 }
 
 /* Question modal */
-.modal {
+.question {
   max-width: 768px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
@@ -182,24 +182,38 @@ body {
   border-radius: 4px;
   border: 6px solid #fff;
   transform: translate(-50%, -50%) scale(0.0000001); /* starts off being hidden */
-  z-index: var(--z-index-modal);
+  z-index: var(--z-index-question);
   transition: all 850ms ease-in-out;
 }
 
-.modal__content {
+.question__content {
   position: relative;
   padding: 40px;
-  font-size: 30px;
-  font-family: var(--font-brand);
-  color: #fff;
 }
 
-.modal__icon {
+.question__icon {
   position: absolute;
   top: 0;
   right: 0;
   transform: translate(50%, -50%);
   width: 100px;
+}
+
+.question__title {
+  font-size: 30px;
+  font-family: var(--font-brand);
+  color: #fff;
+  line-height: 1.5;
+}
+
+.question__options {
+  padding-left: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.question__options li {
+  display: inline-block;
 }
 
 .mario {
@@ -217,47 +231,11 @@ body {
 }
 
 .platforms__tile {
-  display: none;
+  display: inline-block;
   z-index: var(--z-index-tiles);
   width: 160px;
   height: 32px;
   margin-right: 35px;
-}
-
-.platforms__tile--visible {
-  display: inline-block !important;
-}
-
-.platforms__tile:nth-child(1) {
-  transform: translateY(0);
-}
-
-.platforms__tile:nth-child(2) {
-  transform: translateY(-80px);
-}
-
-.platforms__tile:nth-child(3) {
-  transform: translateY(-160px);
-}
-
-.platforms__tile:nth-child(4) {
-  transform: translateY(-240px);
-}
-
-.platforms__tile:nth-child(5) {
-  transform: translateY(-320px);
-}
-
-.platforms__tile:nth-child(6) {
-  transform: translateY(-400px);
-}
-
-.platforms__tile:nth-child(7) {
-  transform: translateY(-480px);
-}
-
-.platforms__tile:nth-child(8) {
-  transform: translateY(-560px);
 }
 
 .platforms__tile-image {

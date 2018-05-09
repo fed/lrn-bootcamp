@@ -1,9 +1,15 @@
-// ------------------------------------------------------
+// Get lava level (in pixels, from the bottom of the screen).
+export function getLavaLevel() {
+  const lava = document.querySelector('.lava');
+
+  return Number(window.getComputedStyle(lava)['height'].slice(0, -2));
+}
+
 // Lava rising level management.
 export function openLavaGates() {
   const lava = document.querySelector('.lava');
   const lavaLevelRisingInterval = 9000; // in milliseconds.
-  const maxLavaHeight = 653;
+  const maxLavaHeight = 653; // in pixels.
 
   setInterval(() => {
     const currentLavaHeight = getLavaLevel();
@@ -13,10 +19,4 @@ export function openLavaGates() {
       lava.style.height = `${nextLavaHeight}px`;
     }
   }, lavaLevelRisingInterval);
-}
-
-// ------------------------------------------------------
-// Get lava level (in pixels, from the bottom of the screen).
-export function getLavaLevel() {
-  return Number(window.getComputedStyle(lava)['height'].slice(0, -2));
 }
