@@ -21,6 +21,7 @@
   --z-index-question: var(--z-index-princess);
   --z-index-warning: var(--z-index-princess);
   --z-index-audio-control: var(--z-index-princess);
+  --z-index-game-over: var(--z-index-princess);
   --font-brand: Emulogic, monospace;
 }
 
@@ -111,8 +112,10 @@ body {
   display: none;
 }
 
-.warning--visible {
-  display: inline-block;
+.warning--visible,
+.game-over--visible,
+.speech-bubble--visible {
+  display: inline-block !important;
 }
 
 .audio-control {
@@ -233,13 +236,41 @@ body {
 .platforms__tile {
   display: inline-block;
   z-index: var(--z-index-tiles);
-  width: 160px;
-  height: 32px;
-  margin-right: 35px;
+  width: 200px;
+  margin-right: 45px;
 }
 
 .platforms__tile-image {
   width: 100%;
+}
+
+.game-over {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-index-game-over);
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 4px;
+  border: 6px solid #fff;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-family: var(--font-brand);
+  color: #fff;
+  padding: 60px;
+}
+
+.speech-bubble {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 135px;
+  z-index: var(--z-index-princess);
+  width: 350px;
 }
 
 /* Animations */

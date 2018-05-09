@@ -29,8 +29,6 @@ function getLastTilePosition() {
 
   const lastTileRect = tiles[tiles.length - 1].getBoundingClientRect();
 
-  console.log(tiles[tiles.length - 1].offsetWidth);
-
   return lastTileRect.left + lastTileRect.width;
 }
 
