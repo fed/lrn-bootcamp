@@ -1,3 +1,40 @@
+<?php
+  require_once __DIR__ . '/vendor/learnosity/learnosity-sdk-php/src/LearnositySdk/autoload.php';
+
+  use LearnositySdk\Request\Init;
+  use LearnositySdk\Utils\Uuid;
+
+  $consumer_secret = '74c5fd430cf1242a527f6223aebd42d30464be22';
+
+  $request = [
+    'activity_id'    => 'bootcamp-fknussel',
+    'name'           => 'Mario Bros Bootcamp Project',
+    // Initialise Items API in inline mode.
+    // Inline mode retrieves content from your Learnosity Item Bank
+    // and instantiates Questions API for rendering, interaction and state management.
+    'rendering_type' => 'inline',
+    'state'          => 'initial',
+    'type'           => 'submit_practice',
+    'session_id'     => Uuid::generate(),
+    'user_id'        => 'demo_student',
+    'assess_inline'  => true,
+    'items'          => [
+      'bootcamp-fknussel-item1'
+    ]
+  ];
+
+  $security = [
+    'consumer_key' => 'yis0TYCu7U9V4o7M',
+    'domain'       => $_SERVER['SERVER_NAME']
+  ];
+
+  // Instantiate the SDK Init class with your security and request data.
+  $init = new Init('items', $security, $consumer_secret, $request);
+
+  // Call the generate() method to retrieve a JavaScript object.
+  $signedRequest = $init->generate();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -65,6 +102,7 @@
         <img src="assets/question.png" class="question__icon" alt="" />
         <span class="question__title">Loading question...</span>
         <ul class="question__options"></ul>
+        <span class="learnosity-item" data-reference="bootcamp-fknussel-item1"></span>
       </div>
     </div>
 
@@ -73,7 +111,24 @@
     </div>
   </div>
 
+  <script src="https://items.staging.learnosity.com/?v1"></script>
   <script src="bundle.js"></script>
+  <script>
+    const itemsApp = LearnosityItems.init(<?php echo $signedRequest; ?>, {
+    readyListener() {
+      const activity = itemsApp.getActivity();
+      const items = activity['items'];
+
+      console.log('Ready');
+      console.log(activity);
+      // createPagination(items.length);
+      // currentItemPosition(0);
+    },
+    errorListener(err) {
+      console.log('Something bad happened', err);
+    }
+  });
+  </script>
 </body>
 
 </html>

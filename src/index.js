@@ -1,6 +1,6 @@
 import { initControls } from './controls';
 import { enableAudioSupport } from './audio';
-import { openLavaGates, getLavaLevel } from './lava';
+import { openLavaGates } from './lava';
 import { renderTiles } from './tiles';
 import { moveMarioToTile } from './mario';
 

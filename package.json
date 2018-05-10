@@ -8,10 +8,11 @@
   "author": "Federico Knüssel <fknussel@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "serve": "browser-sync start --port 6789 --files \".\" --server",
+    "serve": "php -S localhost:6789",
+    "sync": "browser-sync start --proxy \"localhost:6789\" --files \".\"",
     "build": "rollup src/index.js --o bundle.js --f iife",
     "watch": "npm run build -- --watch",
-    "start": "npm-run-all --parallel watch serve",
+    "start": "npm-run-all --parallel watch serve sync",
     "test": "echo \"Error: no test specified\""
   },
   "devDependencies": {
