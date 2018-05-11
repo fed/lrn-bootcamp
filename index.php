@@ -25,7 +25,10 @@
       'bootcamp-fknussel-item3',
       'bootcamp-fknussel-item4',
       'bootcamp-fknussel-item5',
-      'bootcamp-fknussel-item6'
+      'bootcamp-fknussel-item6',
+      'bootcamp-fknussel-item7',
+      'bootcamp-fknussel-item8',
+      'bootcamp-fknussel-item9',
     ]
   ];
 
@@ -106,6 +109,7 @@
     <div class="question">
       <div class="question__content">
         <img src="assets/question.png" class="question__icon" alt="" />
+        <img src="assets/error.png" id="wrong-answer" class="question__wrong-answer" alt="" />
         <button class="question__next-button" id="check-answer">Check Answer</button>
         <span class="learnosity-item learnosity-item--visible" data-reference="bootcamp-fknussel-item1"></span>
         <span class="learnosity-item" data-reference="bootcamp-fknussel-item2"></span>
@@ -113,6 +117,9 @@
         <span class="learnosity-item" data-reference="bootcamp-fknussel-item4"></span>
         <span class="learnosity-item" data-reference="bootcamp-fknussel-item5"></span>
         <span class="learnosity-item" data-reference="bootcamp-fknussel-item6"></span>
+        <span class="learnosity-item" data-reference="bootcamp-fknussel-item7"></span>
+        <span class="learnosity-item" data-reference="bootcamp-fknussel-item8"></span>
+        <span class="learnosity-item" data-reference="bootcamp-fknussel-item9"></span>
       </div>
     </div>
 

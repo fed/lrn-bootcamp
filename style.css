@@ -114,7 +114,8 @@ body {
 
 .warning--visible,
 .game-over--visible,
-.speech-bubble--visible {
+.speech-bubble--visible,
+.question__wrong-answer--visible {
   display: inline-block !important;
 }
 
@@ -211,12 +212,22 @@ body {
   font-size: 22px;
   color: #fff;
   border-radius: 4px;
-  background-color: dodgerblue; /* royalblue; */
+  background-color: dodgerblue;
   border: 4px solid #1b1b1b;
   padding: 8px 20px;
   max-width: 350px;
   width: 100%;
   cursor: pointer;
+}
+
+.question__wrong-answer {
+  display: none;
+  width: 72px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+  animation: wrong-answer-pulse 1.15s infinite;
 }
 
 .mario {
@@ -261,7 +272,7 @@ body {
   font-size: 40px;
   font-family: var(--font-brand);
   color: #fff;
-  padding: 60px;
+  padding: 60px 80px;
 }
 
 .speech-bubble {
@@ -297,6 +308,38 @@ body {
   display: block !important;
 }
 
+.lrn_mcqgroup-block label,
+.lrn_mcqgroup-block .lrn_choiceLabel {
+  background-color: transparent !important;
+}
+
+.lrn_mcqgroup-block li.lrn_selected label {
+  background-color: goldenrod !important;
+}
+
+.lrn_mcqgroup-block li.lrn_selected .lrn_choiceLabel {
+  color: #222 !important;
+}
+
+.lrn-dragdrop-container {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: var(--font-brand);
+  color: #fff;
+}
+
+.lrn_btn_drag {
+  font-size: 12px !important;
+}
+
+.lrn_response_input_wrapper {
+  border: none !important;
+}
+
+.lrn_possibilityList {
+  background-color: transparent !important;
+}
+
 /* Animations */
 @keyframes pulse {
   0%,
@@ -305,6 +348,16 @@ body {
   }
   50% {
     transform: scale(1.25);
+  }
+}
+
+@keyframes wrong-answer-pulse {
+  0%,
+  100% {
+    transform: translate(50%, 50%) scale(1);
+  }
+  50% {
+    transform: translate(50%, 50%) scale(1.5);
   }
 }
 

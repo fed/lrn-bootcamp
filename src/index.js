@@ -17,15 +17,16 @@ renderTiles();
 moveMarioToTile(0);
 
 const checkAnswerButton = document.getElementById('check-answer');
+const wrongAnswerIndicator = document.getElementById('wrong-answer');
 
 checkAnswerButton.addEventListener('click', () => {
   const questions = itemsApp.getQuestions();
   const currentQuestionId = Object.keys(questions)[currentQuestionIndex];
   const currentQuestion = itemsApp.question(currentQuestionId);
 
-  console.log(currentQuestionId);
-  console.log('attempted', currentQuestion.isAttempted());
-  console.log('correct', currentQuestion.isValid());
+  if (wrongAnswerIndicator.classList.contains('question__wrong-answer--visible')) {
+    wrongAnswerIndicator.classList.remove('question__wrong-answer--visible');
+  }
 
   if (currentQuestion.isAttempted() && currentQuestion.isValid()) {
     toggleQuestionVisibility();
@@ -37,6 +38,10 @@ checkAnswerButton.addEventListener('click', () => {
 
     setTimeout(() => {
       toggleQuestionVisibility();
-    }, 2000);
+    }, 1500);
+  }
+
+  if (!currentQuestion.isValid()) {
+    wrongAnswerIndicator.classList.add('question__wrong-answer--visible');
   }
 });
