@@ -8,10 +8,6 @@ export function initControls() {
     toggleSplashVisibility();
     toggleQuestionVisibility();
     openLavaGates();
-
-    setTimeout(() => {
-      setQuestionTitle('This is a sample question');
-    }, 2000);
   });
 }
 

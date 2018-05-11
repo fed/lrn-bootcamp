@@ -4,14 +4,14 @@ export function toggleQuestionVisibility() {
   question.classList.toggle('question--visible');
 }
 
-export function setQuestionTitle(title) {
-  const questionTitle = document.querySelector('.question .question__title');
+export function renderNextQuestion() {
+  // const questions = document.querySelectorAll('.learnosity-item');
+  // const visibleQuestion = Array.from(questions).filter(question =>
+  //   question.classList.contains('learnosity-item--visible')
+  // );
 
-  questionTitle.textContent = title;
-}
+  const visibleQuestion = document.querySelector('.learnosity-item.learnosity-item--visible');
 
-export function setQuestionOptions(options) {
-  const questionOptions = document.querySelector('.question .question__options');
-
-  questionOptions.innerHTML = options.map(option => `<li>${option}</li>`);
+  visibleQuestion.classList.remove('learnosity-item--visible');
+  visibleQuestion.nextElementSibling.classList.add('learnosity-item--visible');
 }

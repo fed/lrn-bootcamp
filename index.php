@@ -6,26 +6,32 @@
 
   $consumer_secret = '74c5fd430cf1242a527f6223aebd42d30464be22';
 
+  // Initialise Items API in inline mode.
+  // Inline mode retrieves content from your Learnosity Item Bank
+  // and instantiates Questions API for rendering, interaction and state management.
+
   $request = [
-    'activity_id'    => 'bootcamp-fknussel',
-    'name'           => 'Mario Bros Bootcamp Project',
-    // Initialise Items API in inline mode.
-    // Inline mode retrieves content from your Learnosity Item Bank
-    // and instantiates Questions API for rendering, interaction and state management.
+    'activity_id' => 'bootcamp-fknussel',
+    'name' => 'Mario Bros Bootcamp Project',
     'rendering_type' => 'inline',
-    'state'          => 'initial',
-    'type'           => 'submit_practice',
-    'session_id'     => Uuid::generate(),
-    'user_id'        => 'demo_student',
-    'assess_inline'  => true,
-    'items'          => [
-      'bootcamp-fknussel-item1'
+    'state' => 'initial',
+    'type' => 'submit_practice',
+    'session_id' => Uuid::generate(),
+    'user_id' => 'demo_student',
+    'assess_inline' => true,
+    'items' => [
+      'bootcamp-fknussel-item1',
+      'bootcamp-fknussel-item2',
+      'bootcamp-fknussel-item3',
+      'bootcamp-fknussel-item4',
+      'bootcamp-fknussel-item5',
+      'bootcamp-fknussel-item6'
     ]
   ];
 
   $security = [
     'consumer_key' => 'yis0TYCu7U9V4o7M',
-    'domain'       => $_SERVER['SERVER_NAME']
+    'domain' => $_SERVER['SERVER_NAME']
   ];
 
   // Instantiate the SDK Init class with your security and request data.
@@ -52,7 +58,7 @@
     <div class="score-panel">
       <div class="score-panel__coins">
         <img src="assets/coin.png" class="score-panel__coins-icon" alt="" />
-        <span class="score-panel__coins-label">0005</span>
+        <span class="score-panel__coins-label">0000</span>
       </div>
 
       <ul class="score-panel__lives">
@@ -100,9 +106,13 @@
     <div class="question">
       <div class="question__content">
         <img src="assets/question.png" class="question__icon" alt="" />
-        <span class="question__title">Loading question...</span>
-        <ul class="question__options"></ul>
-        <span class="learnosity-item" data-reference="bootcamp-fknussel-item1"></span>
+        <button class="question__next-button" id="check-answer">Check Answer</button>
+        <span class="learnosity-item learnosity-item--visible" data-reference="bootcamp-fknussel-item1"></span>
+        <span class="learnosity-item" data-reference="bootcamp-fknussel-item2"></span>
+        <span class="learnosity-item" data-reference="bootcamp-fknussel-item3"></span>
+        <span class="learnosity-item" data-reference="bootcamp-fknussel-item4"></span>
+        <span class="learnosity-item" data-reference="bootcamp-fknussel-item5"></span>
+        <span class="learnosity-item" data-reference="bootcamp-fknussel-item6"></span>
       </div>
     </div>
 
@@ -116,13 +126,7 @@
   <script>
     const itemsApp = LearnosityItems.init(<?php echo $signedRequest; ?>, {
     readyListener() {
-      const activity = itemsApp.getActivity();
-      const items = activity['items'];
-
-      console.log('Ready');
-      console.log(activity);
-      // createPagination(items.length);
-      // currentItemPosition(0);
+      console.log(`Game's ready`);
     },
     errorListener(err) {
       console.log('Something bad happened', err);
