@@ -1,6 +1,6 @@
-import { getMarioPosition, setMarioOnFire } from './mario';
-import { toggleGameOverVisibility } from './game-over';
-import { toggleQuestionVisibility } from './question';
+import { getMarioPosition } from './mario';
+import { showQuestion, hideQuestion } from './toggle-visibility';
+import { gameOver } from './game-over';
 
 // Get lava level (in pixels, from the bottom of the screen).
 function getLavaHeight() {
@@ -31,9 +31,7 @@ export function openLavaGates() {
       lava.style.height = `${nextLavaHeight}px`;
 
       if (lavaHasReachedMario) {
-        toggleQuestionVisibility();
-        toggleGameOverVisibility();
-        setMarioOnFire();
+        gameOver();
         clearInterval(risingLavaInterval);
       }
     }

@@ -1,7 +1,8 @@
-export function toggleGameOverVisibility() {
-  const gameOverMessage = document.querySelector('.game-over');
-  const speechBubble = document.querySelector('.speech-bubble');
+import { showGameOver, hideQuestion } from './toggle-visibility';
+import { setMarioOnFire } from './mario';
 
-  gameOverMessage.classList.toggle('game-over--visible');
-  speechBubble.classList.toggle('speech-bubble--visible');
+export function gameOver() {
+  showGameOver();
+  setMarioOnFire();
+  hideQuestion();
 }

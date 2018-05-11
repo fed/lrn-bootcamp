@@ -7,9 +7,8 @@
   $consumer_secret = '74c5fd430cf1242a527f6223aebd42d30464be22';
 
   // Initialise Items API in inline mode.
-  // Inline mode retrieves content from your Learnosity Item Bank
-  // and instantiates Questions API for rendering, interaction and state management.
-
+  // Inline mode retrieves content from your Learnosity Item Bank and
+  // instantiates Questions API for rendering, interaction and state management.
   $request = [
     'activity_id' => 'bootcamp-fknussel',
     'name' => 'Mario Bros Bootcamp Project',
@@ -61,10 +60,10 @@
     <div class="score-panel">
       <div class="score-panel__coins">
         <img src="assets/coin.png" class="score-panel__coins-icon" alt="" />
-        <span class="score-panel__coins-label">0000</span>
+        <span class="score-panel__coins-label" id="score">0000</span>
       </div>
 
-      <ul class="score-panel__lives">
+      <ul class="score-panel__lives" id="lives">
         <li>
           <img src="assets/mushroom.png" alt="" />
         </li>
@@ -99,10 +98,10 @@
     </a>
 
     <!-- Splash screen with start button -->
-    <div class="splash splash--visible">
+    <div class="splash visible">
       <img src="assets/logo.png" class="splash__image" alt="" />
       <div class="splash__copyright">©2018 Learnosity</div>
-      <button class="splash__start-button">Start</button>
+      <button class="splash__start-button" id="start-button">Start</button>
     </div>
 
     <!-- Modal on which we render the questions -->
@@ -111,7 +110,7 @@
         <img src="assets/question.png" class="question__icon" alt="" />
         <img src="assets/error.png" id="wrong-answer" class="question__wrong-answer" alt="" />
         <button class="question__next-button" id="check-answer">Check Answer</button>
-        <span class="learnosity-item learnosity-item--visible" data-reference="bootcamp-fknussel-item1"></span>
+        <span class="learnosity-item visible" data-reference="bootcamp-fknussel-item1"></span>
         <span class="learnosity-item" data-reference="bootcamp-fknussel-item2"></span>
         <span class="learnosity-item" data-reference="bootcamp-fknussel-item3"></span>
         <span class="learnosity-item" data-reference="bootcamp-fknussel-item4"></span>
@@ -132,13 +131,13 @@
   <script src="bundle.js"></script>
   <script>
     const itemsApp = LearnosityItems.init(<?php echo $signedRequest; ?>, {
-    readyListener() {
-      console.log(`Game's ready`);
-    },
-    errorListener(err) {
-      console.log('Something bad happened', err);
-    }
-  });
+      readyListener() {
+        console.log(`Game's ready`);
+      },
+      errorListener(err) {
+        console.log('Something bad happened', err);
+      }
+    });
   </script>
 </body>
 
