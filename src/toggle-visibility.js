@@ -4,6 +4,7 @@ const warningIndicator = document.querySelector('.warning');
 const question = document.querySelector('.question');
 const splashScreen = document.querySelector('.splash');
 const wrongAnswerIndicator = document.getElementById('wrong-answer');
+const youWinMessage = document.querySelector('.you-win');
 
 export function showGameOver() {
   gameOverMessage.classList.add('visible');
@@ -41,4 +42,8 @@ export function showWrongAnswer() {
 
 export function hideWrongAnswer() {
   wrongAnswerIndicator.classList.remove('visible');
+}
+
+export function showYouWinMessage() {
+  youWinMessage.classList.add('visible');
 }

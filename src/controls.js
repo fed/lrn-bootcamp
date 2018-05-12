@@ -1,5 +1,5 @@
 import { openLavaGates } from './lava';
-import { renderNextQuestion } from './question';
+import { renderNextQuestion, isLastQuestion } from './question';
 import { loseOneLife, calculateScore } from './score';
 import { moveMarioToTile } from './mario';
 import {
@@ -8,7 +8,8 @@ import {
   hideSplash,
   showGameOver,
   showWrongAnswer,
-  hideWrongAnswer
+  hideWrongAnswer,
+  showYouWinMessage
 } from './toggle-visibility';
 
 export function initControls() {
@@ -33,14 +34,19 @@ export function initControls() {
       hideQuestion();
       calculateScore();
 
-      setTimeout(() => {
-        moveMarioToTile(++currentQuestionIndex);
-        renderNextQuestion();
-      }, 750);
+      if (isLastQuestion()) {
+        // You've answered all questions correctly!
+        showYouWinMessage();
+      } else {
+        setTimeout(() => {
+          moveMarioToTile(++currentQuestionIndex);
+          renderNextQuestion();
+        }, 750);
 
-      setTimeout(() => {
-        showQuestion();
-      }, 1250);
+        setTimeout(() => {
+          showQuestion();
+        }, 1250);
+      }
     }
 
     if (!currentQuestion.isValid()) {

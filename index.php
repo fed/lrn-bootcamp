@@ -85,6 +85,14 @@
     <!-- Warning box that displays when time's running out -->
     <img src="assets/exclamation.png" class="warning" alt="Hurry up!" />
 
+    <!-- "You win!" message -->
+    <div class="you-win">
+      <div class="you-win__content">
+        <img src="https://thumbs.gfycat.com/UnnaturalGrossAlaskanhusky-max-1mb.gif" class="you-win__image" alt="" />
+        <div class="you-win__text">Yay! Good job!</div>
+      </div>
+    </div>
+
     <!-- Animated rising lava -->
     <div class="lava"></div>
 

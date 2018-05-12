@@ -1,28 +1,29 @@
 /* Font families definitions */
 @font-face {
   font-family: 'Super Plumber Brothers';
-  src: url(./assets/super-plumber-brothers.ttf);
   font-weight: 400;
+  src: url(./assets/super-plumber-brothers.ttf);
 }
 
 @font-face {
   font-family: 'Emulogic';
-  src: url(./assets/emulogic.ttf);
   font-weight: 400;
+  src: url(./assets/emulogic.ttf);
 }
 
 /* Global styles and variables */
 :root {
-  --z-index-world: 1;
-  --z-index-tiles: 2;
-  --z-index-lava: 3;
-  --z-index-princess: 4;
-  --z-index-splash: var(--z-index-princess);
-  --z-index-question: var(--z-index-princess);
-  --z-index-warning: var(--z-index-princess);
+  --font-brand: Emulogic, monospace;
   --z-index-audio-control: var(--z-index-princess);
   --z-index-game-over: var(--z-index-princess);
-  --font-brand: Emulogic, monospace;
+  --z-index-lava: 3;
+  --z-index-princess: 4;
+  --z-index-question: var(--z-index-princess);
+  --z-index-splash: var(--z-index-princess);
+  --z-index-tiles: 2;
+  --z-index-victory: 5;
+  --z-index-warning: var(--z-index-princess);
+  --z-index-world: 1;
 }
 
 body {
@@ -34,43 +35,43 @@ body {
 .world {
   background: url(./assets/world.jpg) repeat-x top left;
   background-size: 100% 100%;
-  width: 100%;
   height: 100%;
-  position: relative;
   overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 
 .lava {
-  background: url(./assets/lava.jpg) repeat-x top left;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  transition: all 2s ease-in-out;
   animation: lava-flow 2s infinite;
+  background: url(./assets/lava.jpg) repeat-x top left;
+  bottom: 0;
+  height: 100px;
+  position: absolute;
+  transition: all 2s ease-in-out;
+  width: 100%;
   z-index: var(--z-index-lava);
 }
 
 /* Score panel on the upper left corner */
 .score-panel {
+  left: 30px;
   position: absolute;
   top: 30px;
-  left: 30px;
 }
 
 .score-panel__coins {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .score-panel__coins-icon {
-  width: 30px;
   margin-right: 12px;
+  width: 30px;
 }
 
 .score-panel__coins-label {
-  font-family: var(--font-brand);
   color: #fff;
+  font-family: var(--font-brand);
   font-size: 18px;
 }
 
@@ -93,10 +94,10 @@ body {
 
 /* Princess Peach flying her drones on the upper right corner */
 .princess {
-  position: absolute;
-  top: 30px;
-  right: 50px;
   animation: balance 4s infinite;
+  position: absolute;
+  right: 50px;
+  top: 30px;
   width: 150px;
   z-index: var(--z-index-princess);
 }
@@ -104,12 +105,12 @@ body {
 /* Warning box displayed when running out of time */
 .warning {
   animation: pulse 1.15s infinite;
-  width: 120px;
-  position: absolute;
   bottom: 60px;
-  right: 60px;
-  z-index: var(--z-index-warning);
   display: none;
+  position: absolute;
+  right: 60px;
+  width: 120px;
+  z-index: var(--z-index-warning);
 }
 
 .visible {
@@ -121,9 +122,9 @@ body {
 } */
 
 .audio-control {
-  position: absolute;
   bottom: 25px;
   left: 25px;
+  position: absolute;
   z-index: var(--z-index-audio-control);
 }
 
@@ -133,13 +134,13 @@ body {
 
 /* Logo */
 .splash {
-  position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.0000001); /* starts off being hidden */
-  z-index: var(--z-index-splash);
+  position: absolute;
   text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.0000001); /* starts off being hidden */
   transition: all 500ms ease;
+  z-index: var(--z-index-splash);
 }
 
 .question.visible,
@@ -148,28 +149,28 @@ body {
 }
 
 .splash__image {
-  width: 100%;
   max-width: 768px;
+  width: 100%;
 }
 
 .splash__copyright {
   font-family: var(--font-brand);
-  text-align: right;
   margin-bottom: 40px;
+  text-align: right;
 }
 
 .splash__start-button {
-  font-family: var(--font-brand);
-  font-size: 22px;
-  color: #fff;
-  border-radius: 4px;
   background-color: #dfc215;
   border: 4px solid #1b1b1b;
-  padding: 8px 20px;
-  max-width: 250px;
-  width: 100%;
+  border-radius: 4px;
+  color: #fff;
   cursor: pointer;
+  font-family: var(--font-brand);
+  font-size: 22px;
+  max-width: 250px;
+  padding: 8px 20px;
   transition: all 200ms ease-in-out;
+  width: 100%;
 }
 
 .splash__start-button:hover {
@@ -178,57 +179,57 @@ body {
 
 /* Question modal */
 .question {
-  max-width: 768px;
-  width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
+  border: 6px solid #fff;
+  border-radius: 4px;
+  left: 50%;
+  max-width: 768px;
   position: absolute;
   top: 50%;
-  left: 50%;
-  border-radius: 4px;
-  border: 6px solid #fff;
   transform: translate(-50%, -50%) scale(0.0000001); /* starts off being hidden */
-  z-index: var(--z-index-question);
   transition: all 850ms ease-in-out;
+  width: 100%;
+  z-index: var(--z-index-question);
 }
 
 .question__content {
-  position: relative;
   padding: 40px;
+  position: relative;
 }
 
 .question__icon {
   position: absolute;
-  top: 0;
   right: 0;
+  top: 0;
   transform: translate(50%, -50%);
   width: 100px;
 }
 
 .question__next-button {
-  position: absolute;
-  bottom: 0;
-  right: 50%;
-  transform: translate(50%, 50%);
-  font-family: var(--font-brand);
-  font-size: 22px;
-  color: #fff;
-  border-radius: 4px;
   background-color: dodgerblue;
   border: 4px solid #1b1b1b;
-  padding: 8px 20px;
-  max-width: 350px;
-  width: 100%;
+  border-radius: 4px;
+  bottom: 0;
+  color: #fff;
   cursor: pointer;
+  font-family: var(--font-brand);
+  font-size: 22px;
+  max-width: 350px;
+  padding: 8px 20px;
+  position: absolute;
+  right: 50%;
+  transform: translate(50%, 50%);
+  width: 100%;
 }
 
 .question__wrong-answer {
-  display: none;
-  width: 72px;
-  position: absolute;
+  animation: wrong-answer-pulse 1.15s infinite;
   bottom: 0;
+  display: none;
+  position: absolute;
   right: 0;
   transform: translate(50%, 50%);
-  animation: wrong-answer-pulse 1.15s infinite;
+  width: 72px;
 }
 
 .mario {
@@ -237,19 +238,19 @@ body {
 }
 
 .platforms {
-  list-style-type: none;
-  padding-left: 0;
-  position: absolute;
   bottom: 160px; /* Make sure this value is above the initial lava level */
   left: 20px;
+  list-style-type: none;
   margin: 0;
+  padding-left: 0;
+  position: absolute;
 }
 
 .platforms__tile {
   display: inline-block;
-  z-index: var(--z-index-tiles);
-  width: 200px;
   margin-right: 45px;
+  width: 200px;
+  z-index: var(--z-index-tiles);
 }
 
 .platforms__tile-image {
@@ -257,40 +258,74 @@ body {
 }
 
 .game-over {
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 6px solid #fff;
+  border-radius: 4px;
+  color: #fff;
   display: none;
-  position: absolute;
-  top: 50%;
+  font-family: var(--font-brand);
+  font-size: 40px;
   left: 50%;
+  left: 50%;
+  padding: 60px 80px;
+  position: absolute;
+  position: absolute;
+  text-transform: uppercase;
+  top: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
   z-index: var(--z-index-game-over);
-  background-color: rgba(0, 0, 0, 0.9);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 4px;
-  border: 6px solid #fff;
-  text-transform: uppercase;
-  font-size: 40px;
-  font-family: var(--font-brand);
-  color: #fff;
-  padding: 60px 80px;
 }
 
 .speech-bubble {
   display: none;
   position: absolute;
-  top: 15px;
   right: 135px;
-  z-index: var(--z-index-princess);
+  top: 15px;
   width: 350px;
+  z-index: var(--z-index-princess);
+}
+
+.you-win {
+  background-color: rgba(0, 0, 0, 0.95);
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: var(--z-index-victory);
+}
+
+.you-win__content {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: var(--z-index-victory) + 1;
+}
+
+.you-win__image {
+  width: 200px;
+}
+
+.you-win__text {
+  color: #fff;
+  font-family: var(--font-brand);
+  font-size: 40px;
+  margin-top: 30px;
+  text-transform: uppercase;
+  z-index: var(--z-index-victory) + 1;
 }
 
 .lrn_question,
 .lrn-possible-answer {
-  text-transform: uppercase;
-  font-size: 30px;
-  font-family: var(--font-brand);
   color: #fff;
+  font-family: var(--font-brand);
+  font-size: 30px;
+  text-transform: uppercase;
 }
 
 .lrn_mcqgroup.lrn_mcqgroup-horizontal li {
@@ -319,10 +354,10 @@ body {
 }
 
 .lrn-dragdrop-container {
-  text-transform: uppercase;
-  font-size: 20px;
-  font-family: var(--font-brand);
   color: #fff;
+  font-family: var(--font-brand);
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
 .lrn_btn_drag {
