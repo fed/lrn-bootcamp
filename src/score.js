@@ -1,4 +1,3 @@
-import leftPad from 'left-pad';
 import { gameOver } from './game-over';
 
 const lives = document.getElementById('lives');
@@ -21,5 +20,6 @@ export function loseOneLife() {
 function calculateScore() {
   const nextScore = coins + itemsApp.question('id').getScore().score;
 
-  leftPad(nextScore, 5, 0);
+  // leftPad(nextScore, 5, 0);
+  // nextScore.toString().padStart(5, '0');
 }
