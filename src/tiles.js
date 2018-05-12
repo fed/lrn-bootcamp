@@ -1,6 +1,8 @@
 export function renderTiles() {
   const tilesWrapper = document.querySelector('.platforms');
-  const princessPosition = document.querySelector('.princess').getBoundingClientRect().left;
+  const princessPosition = document
+    .querySelector('.princess')
+    .getBoundingClientRect().left;
   let tileIndex = 0;
 
   while (getLastTilePosition() + getTileWidth() < princessPosition) {
@@ -33,6 +35,8 @@ function getLastTilePosition() {
 }
 
 function getTileWidth() {
+  // Grab any tile (as they all have the same dimensions) to retrieve its width.
+  // In this case, we grab the first one.
   const tile = document.querySelector('.platforms__tile');
 
   if (!tile) {

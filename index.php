@@ -110,6 +110,8 @@
         <img src="assets/question.png" class="question__icon" alt="" />
         <img src="assets/error.png" id="wrong-answer" class="question__wrong-answer" alt="" />
         <button class="question__next-button" id="check-answer">Check Answer</button>
+
+        <!-- Learnosity questions hooks -->
         <span class="learnosity-item visible" data-reference="bootcamp-fknussel-item1"></span>
         <span class="learnosity-item" data-reference="bootcamp-fknussel-item2"></span>
         <span class="learnosity-item" data-reference="bootcamp-fknussel-item3"></span>

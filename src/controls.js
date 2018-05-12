@@ -1,6 +1,6 @@
 import { openLavaGates } from './lava';
 import { renderNextQuestion } from './question';
-import { loseOneLife } from './score';
+import { loseOneLife, calculateScore } from './score';
 import { moveMarioToTile } from './mario';
 import {
   showQuestion,
@@ -31,6 +31,7 @@ export function initControls() {
 
     if (currentQuestion.isAttempted() && currentQuestion.isValid()) {
       hideQuestion();
+      calculateScore();
 
       setTimeout(() => {
         moveMarioToTile(++currentQuestionIndex);
