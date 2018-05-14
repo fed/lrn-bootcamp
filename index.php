@@ -112,9 +112,9 @@
     <ul class="platforms"></ul>
 
     <!-- Background audio player and control -->
-    <audio src="assets/soundtrack.mp3" id="audio-player" autoplay></audio>
+    <audio src="assets/soundtrack.mp3" id="audio-player"></audio>
     <a href="#" class="audio-control">
-      <img src="assets/audio-on.svg" class="audio-control__icon" />
+      <img src="assets/audio-off.svg" class="audio-control__icon" />
     </a>
 
     <!-- Splash screen with start button -->
