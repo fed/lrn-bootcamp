@@ -1,6 +1,6 @@
 import { openLavaGates } from './lava';
 import { renderNextQuestion, isLastQuestion } from './question';
-import { loseOneLife, calculateScore } from './score';
+import { loseOneLife, calculateScore, renderStats } from './score';
 import { moveMarioToTile } from './mario';
 import {
   showQuestion,
@@ -37,6 +37,7 @@ export function initControls() {
       if (isLastQuestion()) {
         // You've answered all questions correctly!
         showYouWinMessage();
+        renderStats();
       } else {
         setTimeout(() => {
           moveMarioToTile(++currentQuestionIndex);

@@ -25,3 +25,13 @@ export function calculateScore() {
 
   score.textContent = nextScore.toString().padStart(5, '0');
 }
+
+export function renderStats() {
+  const points = document.getElementById('report-points');
+  const attempted = document.getElementById('report-questions-attempted');
+  const wrongAnswers = document.getElementById('report-wrong-answers');
+
+  points.textContent = document.getElementById('score').textContent;
+  attempted.textContent = document.querySelector('.platforms').childElementCount;
+  wrongAnswers.textContent = 3 - document.getElementById('lives').childElementCount;
+}

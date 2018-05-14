@@ -90,6 +90,18 @@
       <div class="you-win__content">
         <img src="https://thumbs.gfycat.com/UnnaturalGrossAlaskanhusky-max-1mb.gif" class="you-win__image" alt="" />
         <div class="you-win__text">Yay! Good job!</div>
+        <ul class="you-win__report">
+          <li class="you-win__report-item">
+            <img src="assets/coin.png" class="you-win__coin" alt="" />
+            <span id="report-points">0000</span>
+          </li>
+          <li class="you-win__report-item">
+            Questions Attempted: <span id="report-questions-attempted"></span>
+          </li>
+          <li class="you-win__report-item">
+            Wrong Answers: <span id="report-wrong-answers"></span>
+          </li>
+        </ul>
       </div>
     </div>
 
