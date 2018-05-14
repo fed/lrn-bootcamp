@@ -88,7 +88,7 @@
     <!-- "You win!" message -->
     <div class="you-win">
       <div class="you-win__content">
-        <img src="https://thumbs.gfycat.com/UnnaturalGrossAlaskanhusky-max-1mb.gif" class="you-win__image" alt="" />
+        <img src="assets/dancing.gif" class="you-win__image" alt="" />
         <div class="you-win__text">Yay! Good job!</div>
         <ul class="you-win__report">
           <li class="you-win__report-item">
