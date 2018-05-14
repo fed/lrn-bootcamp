@@ -237,6 +237,12 @@ body {
   transform: translateY(10px);
 }
 
+.mario-skeleton {
+  position: absolute;
+  height: 150px;
+  transform: translateY(-40%);
+}
+
 .platforms {
   bottom: 160px; /* Make sure this value is above the initial lava level */
   left: 20px;

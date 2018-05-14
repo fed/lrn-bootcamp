@@ -24,6 +24,13 @@ export function getMarioPosition() {
 
 export function setMarioOnFire() {
   const mario = document.querySelector('.mario');
+  const skeleton = document.createElement('img');
 
+  // Replace Mario with an animated flame image.
   mario.src = 'assets/fire.gif';
+
+  // Add a Mario skeleton underneath the fire.
+  skeleton.className = 'mario-skeleton';
+  skeleton.src = 'assets/skeleton.png';
+  mario.parentNode.prepend(skeleton);
 }
